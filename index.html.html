@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal Documents - Useful Apps Suite</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary-color: #4f46e5;
+            --accent-color: #7c3aed;
+            --text-color: #1f2937;
+            --light-text: #6b7280;
+            --background-color: #f9fafb;
+            --card-background: #ffffff;
+            --border-color: #e5e7eb;
+            --header-height: 70px;
+            --nepal-red: #dc143c;
+            --nepal-blue: #003893;
+            --gradient: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: var(--background-color);
+            padding: 0;
+            margin: 0;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--card-background);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
+            overflow: hidden;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        header {
+            background: var(--gradient);
+            color: white;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" opacity="0.05"><circle cx="50" cy="50" r="40" fill="white"/></svg>');
+            background-size: 200px;
+            opacity: 0.1;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+            background: white;
+            color: var(--primary-color);
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            border-radius: 50%;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nepal-flag {
+            display: inline-flex;
+            margin-top: 1rem;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+        }
+        
+        .nepal-flag i {
+            margin-right: 0.5rem;
+            color: var(--nepal-red);
+        }
+        
+        nav {
+            background-color: var(--card-background);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        nav li {
+            padding: 0;
+        }
+        
+        nav a {
+            display: flex;
+            align-items: center;
+            padding: 1.2rem 1.8rem;
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+        
+        nav a i {
+            margin-right: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
+            background-color: #f8fafc;
+        }
+        
+        .content {
+            padding: 2.5rem;
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 2.5rem;
+        }
+        
+        main {
+            min-width: 0;
+        }
+        
+        .section {
+            margin-bottom: 3.5rem;
+            scroll-margin-top: 100px;
+        }
+        
+        .section h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid var(--border-color);
+            font-size: 1.9rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section h2 i {
+            margin-right: 0.7rem;
+        }
+        
+        .section h3 {
+            color: var(--secondary-color);
+            margin: 1.8rem 0 1rem 0;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section h3 i {
+            margin-right: 0.6rem;
+            font-size: 1.2rem;
+        }
+        
+        .section p, .section ul {
+            margin-bottom: 1.2rem;
+            color: var(--text-color);
+        }
+        
+        .section ul {
+            padding-left: 1.8rem;
+        }
+        
+        .section li {
+            margin-bottom: 0.7rem;
+            position: relative;
+        }
+        
+        .section li:before {
+            content: "•";
+            color: var(--accent-color);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+        
+        .contact-info {
+            background-color: #eff6ff;
+            padding: 1.8rem;
+            border-radius: 12px;
+            margin: 1.8rem 0;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .card {
+            background: var(--card-background);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.8rem;
+            margin-bottom: 1.8rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+        }
+        
+        .card h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+        }
+        
+        .card h3 i {
+            margin-right: 0.6rem;
+        }
+        
+        .highlight {
+            background-color: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 1.2rem;
+            margin: 1.8rem 0;
+            border-radius: 8px;
+        }
+        
+        .sidebar {
+            background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+            border-radius: 16px;
+            padding: 2rem;
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .sidebar h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.7rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+        }
+        
+        .sidebar h3 i {
+            margin-right: 0.6rem;
+        }
+        
+        .app-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.7rem;
+        }
+        
+        .app-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            font-size: 0.95rem;
+        }
+        
+        .app-list li:before {
+            content: "•";
+            color: var(--accent-color);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-right: 0.5rem;
+        }
+        
+        .last-updated {
+            text-align: right;
+            font-size: 0.95em;
+            color: var(--light-text);
+            margin-top: 2.5rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        
+        .last-updated i {
+            margin-right: 0.5rem;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            background: linear-gradient(180deg, #f1f5f9 0%, #e2e8f0 100%);
+            color: var(--light-text);
+            font-size: 0.95rem;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .copyright-notice {
+            background-color: #fef2f2;
+            border: 1px solid #fecaca;
+            border-left: 4px solid #ef4444;
+            padding: 1.5rem;
+            margin: 1.8rem 0;
+            border-radius: 8px;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--gradient);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+        
+        @media (max-width: 900px) {
+            .content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .sidebar {
+                position: static;
+                order: -1;
+            }
+            
+            .app-list {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav a {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            header p {
+                font-size: 1.1rem;
+            }
+            
+            .content {
+                padding: 1.5rem;
+            }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-scale-balanced"></i>
+                </div>
+                <h1>Useful Apps Suite</h1>
+                <p>Legal Documents & Policies for Our Applications</p>
+                <div class="nepal-flag">
+                    <i class="fas fa-flag"></i>
+                    <span>Governing Law: Nepal</span>
+                </div>
+            </div>
+        </header>
+        
+        <nav>
+            <ul>
+                <li><a href="#privacy-policy" class="active"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
+                <li><a href="#terms-of-service"><i class="fas fa-file-contract"></i> Terms of Service</a></li>
+                <li><a href="#copyright"><i class="fas fa-copyright"></i> Copyright Info</a></li>
+                <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+        </nav>
+        
+        <div class="content">
+            <main>
+                <section id="privacy-policy" class="section fade-in">
+                    <h2><i class="fas fa-shield-alt"></i> Privacy Policy</h2>
+                    <p class="last-updated"><i class="fas fa-calendar-alt"></i> <strong>Last Updated:</strong> September 18, 2025</p>
+
+                    <p>This Privacy Policy applies to all mobile applications published by <strong>Useful Apps Suite</strong> ("we," "our," or "us") on the Google Play Store, including but not limited to utility, productivity, health, and fitness applications.</p>
+
+                    <div class="card">
+                        <h3><i class="fas fa-database"></i> 1. Information We Do Not Collect</h3>
+                        <p>We do not knowingly collect, store, or process any personally identifiable information (PII) from users of our applications. This includes, but is not limited to, names, email addresses, phone numbers, or precise location data.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3><i class="fas fa-ad"></i> 2. Information Collected by Third Parties</h3>
+                        <p>Our applications use Google AdMob to display advertisements. AdMob, as a third-party ad provider, may collect information to provide personalized ads based on user interests. This information is collected and managed according to <a href="https://policies.google.com/privacy" target="_blank">Google's Privacy Policy</a>.</p>
+                        <p><strong>Data collected by AdMob may include:</strong></p>
+                        <ul>
+                            <li>Device identifiers (e.g., Android Advertising ID)</li>
+                            <li>IP address</li>
+                            <li>Information about your interaction with ads</li>
+                            <li>Non-personal diagnostic information</li>
+                        </ul>
+                        <p>You can learn more about how Google uses data and manage your ad preferences at <a href="https://adssettings.google.com/" target="_blank">Your Ad Choices</a>.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3><i class="fas fa-mobile-alt"></i> 3. Local Data Storage</h3>
+                        <p>Our applications store all user-entered data (e.g., expense logs, workout timers, personal settings) locally on your device. This data never leaves your device and is not accessible by us. You are in complete control of this data and can delete it at any time by uninstalling the application.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3><i class="fas fa-user-shield"></i> 4. Your Rights</h3>
+                        <p>Since we do not collect your personal data, there is no data for us to share or delete on our servers. For any data stored locally on your device, you can manage or delete it directly within the application's settings or by uninstalling the app.</p>
+                        <p>For any questions regarding data collected by AdMob, please refer to Google's policies.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3><i class="fas fa-sync-alt"></i> 5. Changes to This Policy</h3>
+                        <p>We may update our Privacy Policy from time to time. Thus, we advise you to review this page periodically for any changes. We will notify you of any changes by posting the new Privacy Policy on this page. These changes are effective immediately after they are posted.</p>
+                    </div>
+                </section>
+
+                <section id="terms-of-service" class="section fade-in">
+                    <h2><i class="fas fa-file-contract"></i> Terms of Service</h2>
+                    <p class="last-updated"><i class="fas fa-calendar-alt"></i> <strong>Last Updated:</strong> September 18, 2025</p>
+
+                    <p>Please read these Terms of Service ("Terms") carefully before using any mobile applications published by Useful Apps Suite.</p>
+
+                    <div class="card">
+                        <h3><i class="fas fa-check-circle"></i> 1. Acceptance of Terms</h3>
+                        <p>By downloading, installing, or using our applications, you agree to be bound by these Terms. If you do not agree to these Terms, please do not use our applications.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3><i class="fas fa-plug"></i> 2. Use of Applications</h3>
+                        <p>Our applications are provided for personal, non-commercial use. You agree not to misuse the applications or help anyone else do so.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3><i class="fas fa-exclamation-triangle"></i> 3. Disclaimer of Warranties</h3>
+                        <p><strong>THE APPLICATIONS ARE PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT ANY WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED.</strong> To the fullest extent permissible by law, Useful Apps Suite disclaims all warranties, including, but not limited to, implied warranties of merchantability, fitness for a particular purpose, and non-infringement.</p>
+                        <p>We do not warrant that the applications will be uninterrupted, error-free, or free from harmful components.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3><i class="fas fa-balance-scale"></i> 4. Limitation of Liability</h3>
+                        <p><strong>IN NO EVENT SHALL USEFUL APPS SUITE BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES</strong>, including but not limited to loss of profits, data, or use, arising out of or in connection with your use of the applications.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3><i class="fas fa-copyright"></i> 5. Intellectual Property</h3>
+                        <p><strong>5.1. Our Content:</strong> All content, features, and functionality of this application, including but not limited to the code, design, text, graphics, and logos, are the intellectual property of Useful Apps Suite and are protected by international copyright, trademark, and other intellectual property laws.</p>
+
+                        <p><strong>5.2. Originality and Third-Party Rights:</strong> We affirm that the application has been developed using AI-generated code and tools. We have made every effort to ensure the originality of the application's concept, design, and code. If you believe that this application infringes upon your intellectual property rights, please contact us immediately.</p>
+
+                        <p><strong>5.3. DMCA / Copyright Claims:</strong> We respect the intellectual property rights of others. If you believe that your work has been copied in a way that constitutes copyright infringement, please provide us with the following information:
+                            <br>(a) A physical or electronic signature of the person authorized to act on behalf of the owner of the copyright interest.
+                            <br>(b) A description of the copyrighted work that you claim has been infringed.
+                            <br>(c) A description of where the material that you claim is infringing is located in the application.
+                            <br>(d) Your address, telephone number, and email address.
+                            <br>(e) A statement by you that you have a good faith belief that the disputed use is not authorized by the copyright owner, its agent, or the law.
+                            <br>(f) A statement by you, made under penalty of perjury, that the above information in your notice is accurate and that you are the copyright owner or authorized to act on the copyright owner's behalf.
+                        </p>
+                        <p>We will promptly investigate and take appropriate actions, including removal of the allegedly infringing content, in accordance with applicable laws.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3><i class="fas fa-handshake"></i> 6. Indemnification</h3>
+                        <p>You agree to indemnify and hold harmless Useful Apps Suite from any claim or demand, including reasonable attorneys' fees, made by any third party due to or arising out of your breach of these Terms or your violation of any law or the rights of a third party.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3><i class="fas fa-gavel"></i> 7. Governing Law</h3>
+                        <p>These Terms shall be governed by and construed in accordance with the laws of Nepal, without regard to its conflict of law provisions. Any legal disputes shall be subject to the exclusive jurisdiction of the courts located in Kathmandu, Nepal.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3><i class="fas fa-exchange-alt"></i> 8. Changes to Terms</h3>
+                        <p>We reserve the right to modify or replace these Terms at any time. Your continued use of the applications after any changes constitutes your acceptance of the new Terms.</p>
+                    </div>
+                </section>
+
+                <section id="copyright" class="section fade-in">
+                    <h2><i class="fas fa-copyright"></i> Copyright Information</h2>
+                    
+                    <div class="copyright-notice">
+                        <h3><i class="fas fa-exclamation-circle"></i> Copyright Protection Notice</h3>
+                        <p>All applications published by Useful Apps Suite are protected by copyright laws and international treaties. Unauthorized reproduction or distribution of any application, or any portion of it, may result in severe civil and criminal penalties.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3><i class="fas fa-balance-scale-left"></i> Copyright Claims Process</h3>
+                        <p>If you believe that your copyrighted work has been copied in a way that constitutes copyright infringement and is accessible through our applications, please notify our copyright agent as set forth in the Digital Millennium Copyright Act of 1998 (DMCA).</p>
+                        
+                        <p>For your complaint to be valid under the DMCA, you must provide the following information when providing notice of the claimed copyright infringement:</p>
+                        
+                        <ul>
+                            <li>A physical or electronic signature of a person authorized to act on behalf of the copyright owner</li>
+                            <li>Identification of the copyrighted work claimed to have been infringed</li>
+                            <li>Identification of the material that is claimed to be infringing and information reasonably sufficient to permit us to locate the material</li>
+                            <li>Your contact information, including your address, telephone number, and an email address</li>
+                            <li>A statement that you have a good faith belief that use of the material in the manner complained of is not authorized by the copyright owner, its agent, or law</li>
+                            <li>A statement that the information in the notification is accurate, and under penalty of perjury, that you are authorized to act on behalf of the owner of an exclusive right that is allegedly infringed</li>
+                        </ul>
+                        
+                        <p>We will respond to all such notices, including as required or appropriate by removing the infringing material or disabling all links to the infringing material.</p>
+                    </div>
+                </section>
+
+                <section id="contact" class="section fade-in">
+                    <h2><i class="fas fa-envelope"></i> Contact Us</h2>
+                    <div class="contact-info">
+                        <h3><i class="fas fa-headset"></i> Get in Touch</h3>
+                        <p>If you have any questions or suggestions about our Privacy Policy or Terms of Service, do not hesitate to contact us at:</p>
+                        <p><strong>Email:</strong> <a href="mailto:usefulapps.suite@gmail.com">usefulapps.suite@gmail.com</a></p>
+                        <p>We typically respond to all inquiries within 2-3 business days.</p>
+                    </div>
+                </section>
+            </main>
+            
+            <aside class="sidebar">
+                <h3><i class="fas fa-mobile-alt"></i> Our Applications</h3>
+                <p>This policy applies to all our mobile applications, including:</p>
+                <ul class="app-list">
+                    <li>Daily Expense Logger</li>
+                    <li>Water Reminder Hub</li>
+                    <li>Simple Bill Splitter</li>
+                    <li>Body Metrics Tracker</li>
+                    <li>Workout Interval Timer</li>
+                    <li>Breathing Exercise Guide</li>
+                    <li>Digital Shopping List</li>
+                    <li>Minimalist To-Do List</li>
+                    <li>Random Decision Maker</li>
+                    <li>Offline Pocket Notes</li>
+                    <li>Tip Calculator</li>
+                    <li>Flashcards App</li>
+                    <li>Speed Reading Trainer</li>
+                    <li>Daily Fun Facts</li>
+                    <li>Color Palette Generator</li>
+                    <li>White Noise Machine</li>
+                    <li>DIY Score Keeper</li>
+                    <li>Unit Converter</li>
+                    <li>Period Tracker</li>
+                    <li>Lucky Number Generator</li>
+                    <li>Offline Survival Guide</li>
+                </ul>
+                
+                <div class="highlight">
+                    <h4><i class="fas fa-info-circle"></i> Legal Jurisdiction</h4>
+                    <p>All legal matters are subject to the jurisdiction of courts in Kathmandu, Nepal, in accordance with Nepalese law.</p>
+                </div>
+
+                <div class="highlight">
+                    <h4><i class="fas fa-lightbulb"></i> AI-Powered Development</h4>
+                    <p>Our applications are developed using AI-assisted tools, with human oversight to ensure quality and originality.</p>
+                </div>
+            </aside>
+        </div>
+        
+        <footer>
+            <p>© 2025 Useful Apps Suite. All rights reserved. | Based in Nepal | AI-Assisted Development</p>
+        </footer>
+    </div>
+
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script>
+        // Simple script to highlight active navigation link
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.section');
+            const navLinks = document.querySelectorAll('nav a');
+            const backToTop = document.getElementById('backToTop');
+            
+            // Active nav link
+            window.addEventListener('scroll', function() {
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (pageYOffset >= (sectionTop - 120)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').substring(1) === current) {
+                        link.classList.add('active');
+                    }
+                });
+
+                // Back to top button
+                if (window.pageYOffset > 300) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Back to top functionality
+            backToTop.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Animation for sections
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.section').forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
